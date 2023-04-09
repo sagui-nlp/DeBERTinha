@@ -14,5 +14,7 @@ def batch_iterator(batch_size=100):
         text = [ftfy.fix_text(t) for t in text]
         yield text
 
-new_tokenizer = tokenizer.train_new_from_iterator(batch_iterator(), vocab_size=tokenizer.vocab_size)
+
+# BERT vocab size is 30522
+new_tokenizer = tokenizer.train_new_from_iterator(batch_iterator(), vocab_size=30522)
 new_tokenizer.save_pretrained("/longformer-pt-tokenizer")
