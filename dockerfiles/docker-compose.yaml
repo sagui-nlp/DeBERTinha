@@ -1,0 +1,12 @@
+version: "3.5"
+
+services:
+  tokenizer:
+    build:
+      context: .
+      dockerfile: tokenizer.Dockerfile
+    image: tokenizer
+    container_name: tokenizer
+    volumes:
+      - ./longformer-pt-tokenizer:/longformer-pt-tokenizer
+    command: python3 train_tokenizer.py
