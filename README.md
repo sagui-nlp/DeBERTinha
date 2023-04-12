@@ -7,7 +7,7 @@ Longformer has been shown to achieve state-of-the-art results on a range of text
 
 Overall, Longformer is a powerful and flexible language model that represents a major advance in our ability to process long-form text data, and is likely to have a significant impact on a wide range of applications in the years to come.
 
-# A basic example on how use longFomer
+# A basic example on how we can use LongFomer
 
 ````python
 import torch
@@ -32,6 +32,6 @@ predicted_label = torch.argmax(logits, dim=1).item()
 print(f"Predicted label: {predicted_label}")
 
 ````
-In the code above, we first load the Longformer tokenizer from the `allenai/longformer-base-4096` pre-trained model. We then define the Longformer model architecture for sequence classification, with two output labels. Next, we prepare the input data by tokenizing the text and converting it into PyTorch tensors, with padding and truncation as necessary to fit within the maximum sequence length of 512 tokens.
+First we loaded the Longformer tokenizer from the `allenai/longformer-base-4096` pre-trained model. We then define the Longformer model architecture for sequence classification, with two output labels. Next, we prepare the input data by tokenizing the text and converting it into PyTorch tensors, with padding and truncation as necessary to fit within the maximum sequence length of 512 tokens.
 
 Finally, we pass the input tensors to the model to obtain a prediction, and print the predicted label. Note that the outputs.logits tensor will contain the model's raw output scores for each label, which can be further processed as needed (e.g. by applying a softmax function to obtain probabilities).
