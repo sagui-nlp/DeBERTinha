@@ -1,7 +1,3 @@
 data/
-long/
-longenv/
-PTLongformerTokenizer
-c4ai-wik/
-venv_lg_former/
-deberta_pt_tokenizer/
+models/
+venv*/
