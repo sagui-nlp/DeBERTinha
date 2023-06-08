@@ -1,4 +1,4 @@
-data/
-models/
+!models/tokenizer
+models/deberta_test
 venv*/
 debenv
