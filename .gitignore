@@ -2,3 +2,4 @@
 models/deberta_test
 venv*/
 debenv
+data/*
