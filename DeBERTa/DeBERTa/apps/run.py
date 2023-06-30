@@ -40,6 +40,7 @@ from ..optims import get_args as get_optims_args
 def create_model(args, num_labels, model_class_fn):
   # Prepare model
   rank = getattr(args, 'rank', 0)
+  print("Pretrained path {}".format(args.pre_trained))
   init_model = args.init_model if rank<1 else None
   model = model_class_fn(init_model, args.model_config, num_labels=num_labels, \
       drop_out=args.cls_drop_out, \

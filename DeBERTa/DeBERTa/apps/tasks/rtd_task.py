@@ -231,7 +231,7 @@ dataset_size = dataset_size, shuffle=True, **kwargs)
       features[f] = torch.tensor(features[f] + [0]*(max_seq_len - len(token_ids)), dtype=torch.int)
     return features
 
-  def get_model_class_fn(self):
+  def get_model_class_fn(self): # TODO: eh aqui que inicia
     def partial_class(*wargs, **kwargs):
       model = RTDModel.load_model(*wargs, **kwargs)
       if self.args.init_generator is not None:

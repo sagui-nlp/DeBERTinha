@@ -81,6 +81,7 @@ def download_asset(url, name, tag=None, no_cache=False, cache_dir=None):
 
 def load_model_state(path_or_pretrained_id, tag=None, no_cache=False, cache_dir=None):
   model_path = path_or_pretrained_id
+  logger.info(f"Loading state {model_path}")
   if model_path and (not os.path.exists(model_path)) and (path_or_pretrained_id.lower() in pretrained_models):
     _tag = tag
     pretrained = pretrained_models[path_or_pretrained_id.lower()]
@@ -94,6 +95,7 @@ def load_model_state(path_or_pretrained_id, tag=None, no_cache=False, cache_dir=
       asset = download_asset(pretrained.model_url, 'pytorch_model.bin', tag=tag, no_cache=no_cache, cache_dir=cache_dir)
       asset = download_asset(pretrained.config_url, 'model_config.json', tag=tag, no_cache=no_cache, cache_dir=cache_dir)
   elif not model_path:
+    logger.info("Returning NONE")
     return None,None
 
   config_path = os.path.join(os.path.dirname(model_path), 'model_config.json')
