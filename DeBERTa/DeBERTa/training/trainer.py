@@ -140,14 +140,6 @@ class DistributedTrainer:
       train_dataloader = DataLoader(self.train_data, batch_sampler=batch_sampler, num_workers=num_workers, worker_init_fn=self.init_fn, pin_memory=False)
       torch.cuda.empty_cache()
       for step, batch in enumerate(AsyncDataLoader(train_dataloader, 100)):
-        
-        ### DEBUG
-        import sys
-        torch.save(batch,'../../batch.pt')
-        print('batch generated')
-        sys.exit()
-        ### DEBUG
-        
         if self.trainer_state.steps >= self.training_steps:
           break
         bs_scale = 1
