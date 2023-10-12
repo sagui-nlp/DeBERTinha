@@ -16,7 +16,7 @@ input_ids = tokenizer.encode('Tinha uma pedra no meio do caminho.', return_tenso
 
 with torch.no_grad():
     outs = model(input_ids)
-    encoded = outs.last_hidden_state[0, 1:-1]  # Ignore [CLS] and [SEP] special tokens
+    encoded = outs.last_hidden_state[0, 0]  # Use [CLS] representation
 ````
 
 # Citation
